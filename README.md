@@ -1,2 +1,2 @@
 # rbm_pytorch
-Implementation of Restricted Boltzmann Machine  
+Implementation of Restricted Boltzmann Machine based recommendation model.

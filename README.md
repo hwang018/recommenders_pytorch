@@ -1,5 +1,5 @@
-## Recommender Models based on pytorch
-Covering RBM recommendation and Autoencoder recommendation models.
+## Recommenders (pytorch)
+Covering:
 1. Restricted Boltzmann Machine based recommender.
 2. Autoencoder based recommender.
 

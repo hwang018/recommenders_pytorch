@@ -14,7 +14,11 @@ class Encoder(nn.Module):
         layers = self.create_nn_structure(L)
         self.num_layers = len(L)
         self.activation_fn_nm = activation_fn
-        self.drop_prob = drop_prob
+        # create dropout module
+        self._drop_prob = drop_prob
+        if drop_prob > 0.0:
+            self.dropout = nn.Dropout(drop_prob)
+    
         #initialize with empty list to store layers
         self.linears = nn.ModuleList([])
         self.linears.extend([nn.Linear(i[0], i[1]) for i in layers])
@@ -38,6 +42,10 @@ class Encoder(nn.Module):
                 act_fn = self.get_activation_fn()
                 # pass in the input
                 x = act_fn(self.linears[i](x))
+                if self._drop_prob > 0.0 and i <= int(self.num_layers/2): 
+                    # apply dropout only on encode layer
+                    x = self.dropout(x)
+                
         #output layer without activation
         x = self.linears[-1](x)
         return x

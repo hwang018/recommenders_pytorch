@@ -6,5 +6,7 @@ Covering:
 Both models are using 1M version MovieLens dataset, containing ~6k users.
 
 - common: includes utility functions shared by different recommender systems.
-- models: includes each model's structure script.
+- models: includes each model's Class: 
+    - rbm.py
+    - encoder.py
 - dataset: datasets used in this project.
